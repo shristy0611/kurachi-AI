@@ -1,0 +1,61 @@
+# Docker Compose for Neo4j Knowledge Graph Database
+# Run with: docker-compose -f docker-compose.neo4j.yml up -d
+
+version: '3.8'
+
+services:
+  neo4j:
+    image: neo4j:5.15-community
+    container_name: kurachi-neo4j
+    restart: unless-stopped
+    ports:
+      - "7474:7474"  # HTTP
+      - "7687:7687"  # Bolt
+    environment:
+      # Authentication
+      NEO4J_AUTH: neo4j/password
+      
+      # Database settings
+      NEO4J_PLUGINS: '["apoc", "graph-data-science"]'
+      NEO4J_dbms_security_procedures_unrestricted: apoc.*,gds.*
+      NEO4J_dbms_security_procedures_allowlist: apoc.*,gds.*
+      
+      # Memory settings (adjust based on your system)
+      NEO4J_dbms_memory_heap_initial__size: 512m
+      NEO4J_dbms_memory_heap_max__size: 1G
+      NEO4J_dbms_memory_pagecache_size: 512m
+      
+      # Performance settings
+      NEO4J_dbms_default__database: kurachi
+      NEO4J_dbms_allow__upgrade: true
+      
+      # Logging
+      NEO4J_dbms_logs_query_enabled: true
+      NEO4J_dbms_logs_query_threshold: 1s
+      
+    volumes:
+      - neo4j_data:/data
+      - neo4j_logs:/logs
+      - neo4j_import:/var/lib/neo4j/import
+      - neo4j_plugins:/plugins
+    
+    healthcheck:
+      test: ["CMD-SHELL", "cypher-shell -u neo4j -p password 'RETURN 1'"]
+      interval: 30s
+      timeout: 10s
+      retries: 5
+      start_period: 30s
+
+volumes:
+  neo4j_data:
+    driver: local
+  neo4j_logs:
+    driver: local
+  neo4j_import:
+    driver: local
+  neo4j_plugins:
+    driver: local
+
+networks:
+  default:
+    name: kurachi-network

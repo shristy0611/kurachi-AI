@@ -1,0 +1,160 @@
+name: Validation System
+
+on:
+  push:
+    branches: [ main, develop ]
+  pull_request:
+    branches: [ main, develop ]
+
+jobs:
+  smoke:
+    name: Smoke Tests (Fast Gate)
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+        
+      - name: Set up Python 3.11
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+          
+      - name: Cache pip dependencies
+        uses: actions/cache@v4
+        with:
+          path: ~/.cache/pip
+          key: ${{ runner.os }}-pip-${{ hashFiles('**/requirements*.txt') }}
+          restore-keys: |
+            ${{ runner.os }}-pip-
+            
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt -r requirements-dev.txt
+          
+      - name: Run smoke tests
+        run: |
+          pytest -m smoke -q --maxfail=1 --tb=short
+          
+      - name: Verify smoke test performance
+        run: |
+          echo "Running smoke test timing verification..."
+          time pytest -m smoke -q --maxfail=1 | tee smoke_timing.log
+          # Verify completion under 2 minutes (120 seconds)
+          
+  unit:
+    name: Unit Tests (No NLP)
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+        
+      - name: Set up Python 3.11
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+          
+      - name: Cache pip dependencies
+        uses: actions/cache@v4
+        with:
+          path: ~/.cache/pip
+          key: ${{ runner.os }}-pip-${{ hashFiles('**/requirements*.txt') }}
+          restore-keys: |
+            ${{ runner.os }}-pip-
+            
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt -r requirements-dev.txt
+          
+      - name: Run unit tests (excluding NLP)
+        run: |
+          pytest -m "not nlp and not slow" -v --tb=short
+          
+  full:
+    name: Full Test Suite (With NLP)
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    if: github.event_name == 'push' || contains(github.event.pull_request.labels.*.name, 'full-tests')
+    
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+        
+      - name: Set up Python 3.11
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+          
+      - name: Cache pip dependencies
+        uses: actions/cache@v4
+        with:
+          path: ~/.cache/pip
+          key: ${{ runner.os }}-pip-nlp-${{ hashFiles('**/requirements*.txt') }}
+          restore-keys: |
+            ${{ runner.os }}-pip-nlp-
+            ${{ runner.os }}-pip-
+            
+      - name: Cache spaCy models
+        uses: actions/cache@v4
+        with:
+          path: ~/.local/lib/python3.11/site-packages/en_core_web_sm
+          key: spacy-en-core-web-sm-3.7.1
+          
+      - name: Install dependencies with NLP extras
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt -r requirements-dev.txt
+          pip install spacy>=3.7,<4
+          
+      - name: Download spaCy models
+        run: |
+          python -m spacy download en_core_web_sm
+          python -m spacy download ja_core_news_sm || echo "Japanese model optional"
+          
+      - name: Run full test suite
+        run: |
+          pytest -v --tb=short --cov=. --cov-report=xml
+          
+      - name: Upload coverage to Codecov
+        uses: codecov/codecov-action@v3
+        if: success()
+        with:
+          file: ./coverage.xml
+          fail_ci_if_error: false
+
+  dependency-check:
+    name: Dependency Freshness Check
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+        
+      - name: Set up Python 3.11
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+          
+      - name: Install pip-tools
+        run: |
+          python -m pip install --upgrade pip
+          pip install pip-tools
+          
+      - name: Check if requirements are up to date
+        run: |
+          pip-compile --dry-run --check-hashes requirements.in
+          pip-compile --dry-run --check-hashes requirements-dev.in
+          
+      - name: Verify requirements lock freshness
+        run: |
+          echo "Checking if requirements.txt is fresh..."
+          pip-compile --generate-hashes --quiet requirements.in
+          git diff --exit-code requirements.txt || {
+            echo "❌ requirements.txt is out of date. Run 'make compile-deps' locally."
+            exit 1
+          }

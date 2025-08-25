@@ -1,0 +1,143 @@
+{
+  "user_preferences_schema": {
+    "ui_language": {
+      "type": "string",
+      "enum": ["en", "ja"],
+      "default": "en",
+      "description": "Interface language"
+    },
+    "answer_language": {
+      "type": "string", 
+      "enum": ["en", "ja", "auto"],
+      "default": "auto",
+      "description": "Preferred language for AI responses"
+    },
+    "fallback_languages": {
+      "type": "array",
+      "items": {"type": "string", "enum": ["en", "ja"]},
+      "default": ["ja", "en"],
+      "description": "Language fallback order for content retrieval"
+    },
+    "show_original_text": {
+      "type": "boolean",
+      "default": true,
+      "description": "Show original language snippets alongside translations"
+    },
+    "translation_quality_threshold": {
+      "type": "number",
+      "minimum": 0.5,
+      "maximum": 1.0,
+      "default": 0.75,
+      "description": "Minimum quality score for auto-translation"
+    },
+    "date_format": {
+      "type": "string",
+      "enum": ["US", "JP", "ISO"],
+      "default": "US",
+      "description": "Date formatting preference"
+    },
+    "number_format": {
+      "type": "string",
+      "enum": ["US", "JP"],
+      "default": "US", 
+      "description": "Number formatting (1,234.56 vs 1,234.56)"
+    }
+  },
+  
+  "ui_strings": {
+    "en": {
+      "search_placeholder": "Ask a question or search documents...",
+      "language_selector": "Language",
+      "show_original": "Show original text",
+      "hide_original": "Hide original text", 
+      "translation_quality": "Translation quality",
+      "source_document": "Source document",
+      "page_reference": "Page {page}",
+      "no_results": "No results found",
+      "processing": "Processing your request...",
+      "error_translation": "Translation failed",
+      "error_search": "Search failed",
+      "settings": "Settings",
+      "preferences": "Preferences",
+      "about": "About Kurachi AI",
+      "clear_chat": "Clear conversation",
+      "export_chat": "Export conversation",
+      "feedback": "Provide feedback"
+    },
+    "ja": {
+      "search_placeholder": "質問を入力するか、文書を検索してください...",
+      "language_selector": "言語",
+      "show_original": "原文を表示",
+      "hide_original": "原文を非表示",
+      "translation_quality": "翻訳品質",
+      "source_document": "参照文書",
+      "page_reference": "{page}ページ",
+      "no_results": "結果が見つかりませんでした",
+      "processing": "処理中...",
+      "error_translation": "翻訳に失敗しました",
+      "error_search": "検索に失敗しました", 
+      "settings": "設定",
+      "preferences": "設定",
+      "about": "Kurachi AIについて",
+      "clear_chat": "会話をクリア",
+      "export_chat": "会話をエクスポート",
+      "feedback": "フィードバック"
+    }
+  },
+  
+  "response_templates": {
+    "citation_format": {
+      "en": "**Source:** {document_name} (Page {page})\n**Original ({source_lang}):** {original_text}\n**Translation:** {translated_text}",
+      "ja": "**出典:** {document_name} ({page}ページ)\n**原文 ({source_lang}):** {original_text}\n**翻訳:** {translated_text}"
+    },
+    "quality_indicator": {
+      "high": "🟢",
+      "medium": "🟡", 
+      "low": "🔴"
+    },
+    "language_flags": {
+      "en": "🇺🇸",
+      "ja": "🇯🇵",
+      "zh-cn": "🇨🇳",
+      "ko": "🇰🇷"
+    }
+  },
+  
+  "cross_language_settings": {
+    "retrieval_strategy": "multilingual_embeddings",
+    "embedding_model": "BGE-M3",
+    "translate_queries": false,
+    "translate_results": true,
+    "max_citations": 5,
+    "citation_length": 200,
+    "show_confidence_scores": true,
+    "enable_snippet_translation": true
+  },
+  
+  "formatting_rules": {
+    "dates": {
+      "US": "MM/DD/YYYY",
+      "JP": "YYYY年MM月DD日",
+      "ISO": "YYYY-MM-DD"
+    },
+    "numbers": {
+      "US": {
+        "decimal_separator": ".",
+        "thousands_separator": ",",
+        "currency_symbol": "$",
+        "currency_position": "before"
+      },
+      "JP": {
+        "decimal_separator": ".",
+        "thousands_separator": ",", 
+        "currency_symbol": "¥",
+        "currency_position": "before"
+      }
+    },
+    "text_direction": {
+      "en": "ltr",
+      "ja": "ltr",
+      "ar": "rtl"
+    }
+  }
+}

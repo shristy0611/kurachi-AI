@@ -1,0 +1,58 @@
+repos:
+  - repo: https://github.com/pre-commit/pre-commit-hooks
+    rev: v4.5.0
+    hooks:
+      - id: trailing-whitespace
+      - id: end-of-file-fixer
+      - id: check-yaml
+      - id: check-added-large-files
+      - id: check-merge-conflict
+      - id: check-toml
+      - id: debug-statements
+      - id: mixed-line-ending
+        args: ['--fix=lf']
+
+  - repo: https://github.com/psf/black
+    rev: 23.9.1
+    hooks:
+      - id: black
+        args: [--line-length=127]
+        language_version: python3.11
+
+  - repo: https://github.com/pycqa/isort
+    rev: 5.12.0
+    hooks:
+      - id: isort
+        args: [--profile=black, --line-length=127]
+
+  - repo: https://github.com/pycqa/flake8
+    rev: 6.1.0
+    hooks:
+      - id: flake8
+        args: [--max-line-length=127, --extend-ignore=E203,W503]
+        additional_dependencies: [flake8-docstrings]
+
+  - repo: https://github.com/pre-commit/mirrors-mypy
+    rev: v1.6.1
+    hooks:
+      - id: mypy
+        additional_dependencies: [types-requests, types-PyYAML]
+        args: [--ignore-missing-imports]
+
+  - repo: local
+    hooks:
+      - id: pytest-smoke
+        name: pytest smoke tests
+        entry: pytest
+        language: system
+        args: [-m, smoke, -q, --maxfail=1]
+        pass_filenames: false
+        stages: [pre-push]
+
+      - id: requirements-check
+        name: requirements freshness check
+        entry: bash
+        language: system
+        args: [-c, 'pip-compile --dry-run --check-hashes requirements.in && pip-compile --dry-run --check-hashes requirements-dev.in']
+        files: requirements.*\.in$
+        pass_filenames: false

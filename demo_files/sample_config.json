@@ -1,0 +1,15 @@
+{
+    "application": {
+        "name": "Kurachi AI",
+        "version": "1.0.0",
+        "description": "AI-powered knowledge platform"
+    },
+    "features": {
+        "document_processing": true,
+        "ocr_support": true,
+        "multi_language": true,
+        "progress_tracking": true
+    },
+    "supported_languages": ["English", "Japanese"],
+    "max_file_size_mb": 100
+}

@@ -1,0 +1,111 @@
+# Business terminology glossary for Japanese-English translation
+# Used by the intelligent translation system to preserve business terms
+
+terms:
+  # Company structure
+  "株式会社": "Corporation"
+  "有限会社": "Limited Company"
+  "合同会社": "LLC"
+  "取締役": "Director"
+  "代表取締役": "Representative Director"
+  "常務取締役": "Executive Managing Director"
+  "専務取締役": "Executive Vice President"
+  "監査役": "Auditor"
+  "執行役員": "Executive Officer"
+  
+  # Departments
+  "営業部": "Sales Department"
+  "経理部": "Accounting Department"
+  "人事部": "Human Resources Department"
+  "総務部": "General Affairs Department"
+  "企画部": "Planning Department"
+  "開発部": "Development Department"
+  "製造部": "Manufacturing Department"
+  "品質管理部": "Quality Control Department"
+  "マーケティング部": "Marketing Department"
+  "法務部": "Legal Department"
+  
+  # Business processes
+  "会議": "Meeting"
+  "議事録": "Meeting Minutes"
+  "提案書": "Proposal"
+  "企画書": "Project Plan"
+  "報告書": "Report"
+  "契約書": "Contract"
+  "仕様書": "Specification"
+  "見積書": "Quotation"
+  "請求書": "Invoice"
+  "領収書": "Receipt"
+  
+  # Financial terms
+  "売上": "Sales Revenue"
+  "売上高": "Revenue"
+  "利益": "Profit"
+  "営業利益": "Operating Profit"
+  "純利益": "Net Profit"
+  "損失": "Loss"
+  "予算": "Budget"
+  "費用": "Expenses"
+  "コスト": "Cost"
+  "投資": "Investment"
+  "資本": "Capital"
+  "資産": "Assets"
+  "負債": "Liabilities"
+  
+  # Time periods
+  "四半期": "Quarter"
+  "第1四半期": "Q1"
+  "第2四半期": "Q2"
+  "第3四半期": "Q3"
+  "第4四半期": "Q4"
+  "年度": "Fiscal Year"
+  "上半期": "First Half"
+  "下半期": "Second Half"
+  "月次": "Monthly"
+  "週次": "Weekly"
+  "日次": "Daily"
+  
+  # Business metrics
+  "売上高": "Revenue"
+  "成長率": "Growth Rate"
+  "市場シェア": "Market Share"
+  "顧客満足度": "Customer Satisfaction"
+  "ROI": "ROI"
+  "KPI": "KPI"
+  "目標": "Target"
+  "実績": "Performance"
+  "達成率": "Achievement Rate"
+  
+  # Customer relations
+  "顧客": "Customer"
+  "クライアント": "Client"
+  "取引先": "Business Partner"
+  "供給業者": "Supplier"
+  "ベンダー": "Vendor"
+  "代理店": "Agent"
+  "販売店": "Dealer"
+  "パートナー": "Partner"
+  
+  # Project management
+  "プロジェクト": "Project"
+  "タスク": "Task"
+  "マイルストーン": "Milestone"
+  "締切": "Deadline"
+  "スケジュール": "Schedule"
+  "進捗": "Progress"
+  "遅延": "Delay"
+  "完了": "Completion"
+  "承認": "Approval"
+  "レビュー": "Review"
+  
+  # Communication
+  "連絡": "Contact"
+  "通知": "Notification"
+  "お知らせ": "Announcement"
+  "確認": "Confirmation"
+  "返信": "Reply"
+  "転送": "Forward"
+  "CC": "CC"
+  "BCC": "BCC"
+  "添付": "Attachment"
+  "件名": "Subject"

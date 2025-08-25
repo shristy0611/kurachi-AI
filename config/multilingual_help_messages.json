@@ -1,0 +1,248 @@
+{
+  "help_messages": {
+    "en": {
+      "language_selection": {
+        "title": "Language Selection",
+        "content": "Choose your preferred interface language. This affects menus, buttons, and system messages throughout the application.",
+        "tips": [
+          "Changes take effect immediately",
+          "Your language preference is saved automatically",
+          "You can switch languages at any time"
+        ]
+      },
+      "response_language": {
+        "title": "Response Language",
+        "content": "Control the language of AI responses to match your needs.",
+        "options": {
+          "auto": "Automatically matches your query language",
+          "english": "Always respond in English",
+          "japanese": "Always respond in Japanese",
+          "original": "Keep the original document language"
+        },
+        "tips": [
+          "Auto mode provides the most natural experience",
+          "Fixed language modes ensure consistency",
+          "Original mode preserves source document context"
+        ]
+      },
+      "cross_language_search": {
+        "title": "Cross-Language Search",
+        "content": "Search across documents in multiple languages for comprehensive results.",
+        "benefits": [
+          "Find relevant information regardless of document language",
+          "Automatic query translation for broader search",
+          "Unified results from multilingual document collections"
+        ],
+        "tips": [
+          "Particularly useful for bilingual organizations",
+          "May increase response time slightly",
+          "Quality depends on translation accuracy"
+        ]
+      },
+      "translation_quality": {
+        "title": "Translation Quality Threshold",
+        "content": "Set the minimum quality score for automatic translations.",
+        "levels": {
+          "high": "85%+ - Only high-confidence translations",
+          "medium": "70%+ - Balanced accuracy and coverage",
+          "low": "50%+ - Maximum coverage, some inaccuracies possible"
+        },
+        "tips": [
+          "Higher thresholds mean fewer but more accurate translations",
+          "Lower thresholds provide broader coverage",
+          "Adjust based on your accuracy requirements"
+        ]
+      },
+      "cultural_adaptation": {
+        "title": "Cultural Adaptation",
+        "content": "Adapt responses for cultural context and business etiquette.",
+        "levels": {
+          "none": "No cultural adaptations",
+          "basic": "Basic formatting and date adjustments",
+          "business": "Business etiquette and formality levels",
+          "full": "Complete cultural and linguistic adaptation"
+        },
+        "examples": [
+          "Japanese business honorifics (keigo)",
+          "Date and number format preferences",
+          "Cultural references and idioms",
+          "Appropriate formality levels"
+        ]
+      },
+      "show_original": {
+        "title": "Show Original Text",
+        "content": "Display original text alongside translations for verification and context.",
+        "benefits": [
+          "Verify translation accuracy",
+          "Understand source context",
+          "Learn language patterns",
+          "Maintain transparency"
+        ],
+        "tips": [
+          "Helpful for language learning",
+          "Essential for critical business documents",
+          "Can be toggled per conversation"
+        ]
+      }
+    },
+    "ja": {
+      "language_selection": {
+        "title": "言語選択",
+        "content": "お好みのインターフェース言語を選択してください。メニュー、ボタン、システムメッセージに影響します。",
+        "tips": [
+          "変更は即座に反映されます",
+          "言語設定は自動的に保存されます",
+          "いつでも言語を切り替えることができます"
+        ]
+      },
+      "response_language": {
+        "title": "応答言語",
+        "content": "ニーズに合わせてAI応答の言語を制御します。",
+        "options": {
+          "auto": "クエリ言語に自動的に合わせます",
+          "english": "常に英語で応答",
+          "japanese": "常に日本語で応答",
+          "original": "元の文書言語を保持"
+        },
+        "tips": [
+          "自動モードが最も自然な体験を提供",
+          "固定言語モードは一貫性を保証",
+          "オリジナルモードは元文書の文脈を保持"
+        ]
+      },
+      "cross_language_search": {
+        "title": "多言語横断検索",
+        "content": "複数言語の文書を横断検索して包括的な結果を得ます。",
+        "benefits": [
+          "文書言語に関係なく関連情報を発見",
+          "より広範な検索のための自動クエリ翻訳",
+          "多言語文書コレクションからの統合結果"
+        ],
+        "tips": [
+          "バイリンガル組織に特に有用",
+          "応答時間がわずかに増加する可能性",
+          "品質は翻訳精度に依存"
+        ]
+      },
+      "translation_quality": {
+        "title": "翻訳品質閾値",
+        "content": "自動翻訳の最小品質スコアを設定します。",
+        "levels": {
+          "high": "85%以上 - 高信頼度翻訳のみ",
+          "medium": "70%以上 - 精度とカバレッジのバランス",
+          "low": "50%以上 - 最大カバレッジ、一部不正確な可能性"
+        },
+        "tips": [
+          "高い閾値は少ないがより正確な翻訳を意味",
+          "低い閾値はより広いカバレッジを提供",
+          "精度要件に基づいて調整"
+        ]
+      },
+      "cultural_adaptation": {
+        "title": "文化的適応",
+        "content": "文化的文脈とビジネスエチケットに応答を適応させます。",
+        "levels": {
+          "none": "文化的適応なし",
+          "basic": "基本的な書式と日付調整",
+          "business": "ビジネスエチケットと敬語レベル",
+          "full": "完全な文化的・言語的適応"
+        },
+        "examples": [
+          "日本のビジネス敬語（敬語）",
+          "日付と数値形式の設定",
+          "文化的参照と慣用句",
+          "適切な敬語レベル"
+        ]
+      },
+      "show_original": {
+        "title": "原文表示",
+        "content": "検証と文脈のため、翻訳と一緒に原文を表示します。",
+        "benefits": [
+          "翻訳精度の検証",
+          "元の文脈の理解",
+          "言語パターンの学習",
+          "透明性の維持"
+        ],
+        "tips": [
+          "言語学習に役立つ",
+          "重要なビジネス文書に必須",
+          "会話ごとに切り替え可能"
+        ]
+      }
+    }
+  },
+  "error_messages": {
+    "en": {
+      "translation_failed": "Translation failed. The system encountered an error while translating your content. Please try again or contact support if the problem persists.",
+      "search_failed": "Search failed. Unable to process your query. Please check your input and try again.",
+      "language_detection_failed": "Could not detect the language of your input. The system will default to English. You can manually select your preferred language in settings.",
+      "preferences_save_failed": "Failed to save your language preferences. Please try again or contact support if the issue continues.",
+      "no_results": "No results found for your query. Try rephrasing your question or using different keywords.",
+      "processing_error": "An error occurred while processing your request. Please try again later.",
+      "cross_language_search_failed": "Cross-language search encountered an error. Falling back to single-language search.",
+      "translation_quality_low": "Translation quality is below your threshold. Original text is shown instead.",
+      "cultural_adaptation_failed": "Cultural adaptation could not be applied. Standard formatting is used.",
+      "multilingual_context_error": "Error processing multilingual context. Using default language settings."
+    },
+    "ja": {
+      "translation_failed": "翻訳に失敗しました。コンテンツの翻訳中にシステムエラーが発生しました。もう一度お試しいただくか、問題が続く場合はサポートにお問い合わせください。",
+      "search_failed": "検索に失敗しました。クエリを処理できませんでした。入力を確認してもう一度お試しください。",
+      "language_detection_failed": "入力の言語を検出できませんでした。システムは英語をデフォルトとします。設定で希望の言語を手動で選択できます。",
+      "preferences_save_failed": "言語設定の保存に失敗しました。もう一度お試しいただくか、問題が続く場合はサポートにお問い合わせください。",
+      "no_results": "クエリに対する結果が見つかりませんでした。質問を言い換えるか、異なるキーワードを使用してみてください。",
+      "processing_error": "リクエストの処理中にエラーが発生しました。後でもう一度お試しください。",
+      "cross_language_search_failed": "多言語横断検索でエラーが発生しました。単一言語検索にフォールバックします。",
+      "translation_quality_low": "翻訳品質が閾値を下回っています。代わりに原文を表示します。",
+      "cultural_adaptation_failed": "文化的適応を適用できませんでした。標準書式を使用します。",
+      "multilingual_context_error": "多言語コンテキストの処理エラー。デフォルト言語設定を使用します。"
+    }
+  },
+  "ui_tooltips": {
+    "en": {
+      "language_flag": "Current interface language",
+      "cross_language_indicator": "Cross-language search is active",
+      "translation_confidence": "Translation confidence score",
+      "original_text_toggle": "Toggle original text display",
+      "cultural_adaptation_indicator": "Cultural adaptation is applied",
+      "quality_threshold_slider": "Drag to adjust translation quality threshold",
+      "fallback_languages": "Languages searched when no results found in primary language"
+    },
+    "ja": {
+      "language_flag": "現在のインターフェース言語",
+      "cross_language_indicator": "多言語横断検索が有効",
+      "translation_confidence": "翻訳信頼度スコア",
+      "original_text_toggle": "原文表示の切り替え",
+      "cultural_adaptation_indicator": "文化的適応が適用されています",
+      "quality_threshold_slider": "ドラッグして翻訳品質閾値を調整",
+      "fallback_languages": "主言語で結果が見つからない場合に検索される言語"
+    }
+  },
+  "status_messages": {
+    "en": {
+      "detecting_language": "Detecting language...",
+      "translating_query": "Translating query for cross-language search...",
+      "searching_multilingual": "Searching across multiple languages...",
+      "applying_cultural_adaptation": "Applying cultural adaptations...",
+      "processing_multilingual_response": "Processing multilingual response...",
+      "preferences_saved": "Language preferences saved successfully",
+      "preferences_loaded": "Language preferences loaded",
+      "fallback_translation": "Using fallback translation method",
+      "high_quality_translation": "High-quality translation available",
+      "medium_quality_translation": "Medium-quality translation available",
+      "low_quality_translation": "Low-quality translation - original text recommended"
+    },
+    "ja": {
+      "detecting_language": "言語を検出中...",
+      "translating_query": "多言語横断検索のためクエリを翻訳中...",
+      "searching_multilingual": "複数言語を横断検索中...",
+      "applying_cultural_adaptation": "文化的適応を適用中...",
+      "processing_multilingual_response": "多言語応答を処理中...",
+      "preferences_saved": "言語設定が正常に保存されました",
+      "preferences_loaded": "言語設定が読み込まれました",
+      "fallback_translation": "フォールバック翻訳方法を使用",
+      "high_quality_translation": "高品質翻訳が利用可能",
+      "medium_quality_translation": "中品質翻訳が利用可能",
+      "low_quality_translation": "低品質翻訳 - 原文推奨"
+    }
+  }
+}

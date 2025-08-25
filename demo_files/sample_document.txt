@@ -1,0 +1,27 @@
+# Sample Business Document
+
+## Executive Summary
+This is a sample business document that demonstrates the text processing capabilities 
+of the Kurachi AI document ingestion pipeline.
+
+## Key Features
+- Universal document processing
+- Automatic file type detection
+- Progress tracking and status updates
+- OCR capabilities for scanned documents
+- Multi-language support (Japanese and English)
+
+## Technical Details
+The system supports the following file types:
+- PDF documents (with OCR fallback)
+- Word documents (.docx)
+- Excel spreadsheets (.xlsx, .csv)
+- PowerPoint presentations (.pptx)
+- Images (.jpg, .png, .tiff, etc.)
+- Audio files (.mp3, .wav, .m4a, etc.)
+- Video files (.mp4, .avi, .mov, etc.)
+- Various text formats (.txt, .md, .json, .xml, etc.)
+
+## Conclusion
+This comprehensive document processing system enables businesses to extract,
+understand, and make searchable any type of document content.
