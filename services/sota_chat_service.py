@@ -98,13 +98,13 @@ class SOTAChatService:
     
     def _create_rag_chain(self):
         """Create modern LCEL-based RAG chain"""
-        template = \"\"\"Answer the question based on the context provided. 
+        template = """Answer the question based on the context provided. 
         If you cannot answer based on the context, say "I don't have enough information to answer that question."
         
         Context: {context}
         Question: {question}
         
-        Answer:\"\"\"\n        
+        Answer:"""
         prompt = ChatPromptTemplate.from_template(template)
         
         # Modern LCEL pattern - significantly faster than v0.1 RetrievalQA
@@ -120,11 +120,11 @@ class SOTAChatService:
     
     def _create_fallback_chain(self):
         """Create fallback chain for direct LLM interaction"""
-        template = \"\"\"You are a helpful AI assistant. Answer the following question clearly and concisely:
+        template = """You are a helpful AI assistant. Answer the following question clearly and concisely:
         
         Question: {question}
         
-        Answer:\"\"\"\n        
+        Answer:"""
         prompt = ChatPromptTemplate.from_template(template)
         
         return (
@@ -144,7 +144,7 @@ class SOTAChatService:
             source = doc.metadata.get("filename", "Unknown source")
             formatted_docs.append(f"Document {i} ({source}): {content}")
         
-        return "\\n\\n".join(formatted_docs)
+        return "\n\n".join(formatted_docs)
     
     def _has_documents(self) -> bool:
         """Check if documents are available in vector store"""
